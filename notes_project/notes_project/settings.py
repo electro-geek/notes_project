@@ -50,6 +50,13 @@ DEBUG = config.get('DEBUG', os.getenv('DEBUG', 'True')).lower() == 'true'
 
 ALLOWED_HOSTS = ['.vercel.app', '.now.sh', 'localhost', '127.0.0.1', '0.0.0.0', '35.160.120.126', '44.233.151.27', '34.211.200.85', 'notes-project-9qur.onrender.com']
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://notes-project-9qur.onrender.com',
+    'https://*.onrender.com',
+    'https://*.vercel.app',
+    'https://*.now.sh',
+]
+
 
 # Application definition
 
