@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}My Notes{% endblock %}
+
+{% block content %}
+<div style="margin-bottom: 20px;">
+    <a href="{% url 'create_note' %}" class="btn">Create New Note</a>
+</div>
+
+{% if notes %}
+    {% for note in notes %}
+    <div style="border: 1px solid #ddd; padding: 15px; margin-bottom: 15px; border-radius: 4px;">
+        <h3>{{ note.title }}</h3>
+        <p>{{ note.content|linebreaks }}</p>
+        <small style="color: #666;">Created: {{ note.created_at|date:"M d, Y H:i" }}</small>
+        <div style="margin-top: 10px;">
+            <a href="{% url 'delete_note' note.pk %}" class="btn btn-danger" style="font-size: 12px; padding: 4px 8px;">Delete</a>
+        </div>
+    </div>
+    {% endfor %}
+{% else %}
+    <p>You haven't created any notes yet. <a href="{% url 'create_note' %}">Create your first note!</a></p>
+{% endif %}
+{% endblock %}
