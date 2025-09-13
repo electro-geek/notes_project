@@ -48,7 +48,7 @@ SECRET_KEY = config.get('SECRET_KEY', os.getenv('SECRET_KEY', 'django-insecure-x
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config.get('DEBUG', os.getenv('DEBUG', 'True')).lower() == 'true'
 
-ALLOWED_HOSTS = ['.vercel.app', '.now.sh', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['.vercel.app', '.now.sh', 'localhost', '127.0.0.1', '0.0.0.0']
 
 
 # Application definition
